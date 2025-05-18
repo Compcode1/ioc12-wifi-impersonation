@@ -74,3 +74,8 @@ This exchange can be captured in passive mode and later cracked if PSKs are weak
 
 This write-up is part of a structured series of IOCs engineered for real-world application and layered triage analysis.
 
+Addendum – Reconnaissance for BSSID (MAC) Acquisition
+The attacker does not need to compromise a host or gain network access to spoof a Wi-Fi access point’s MAC address (BSSID). Instead, they passively gather this information from beacon frames that are openly broadcast by all wireless access points. These 802.11 management frames include both the SSID (network name) and the BSSID (MAC address of the AP radio interface), as well as encryption type, channel, and signal strength. Tools such as airodump-ng, Wireshark in monitor mode, or Kismet can capture this data in seconds. By analyzing these frames, the attacker learns everything needed to clone the legitimate network’s identity and configure an evil twin access point, all without sending a single packet or alerting the target network. This passive reconnaissance step makes Wi-Fi impersonation highly stealthy and accessible to low-profile attackers.
+
+
+
